@@ -4,8 +4,8 @@ Do NOT redefine these inside individual track modules — import from here
 so everyone's interfaces stay compatible.
 """
 
-from dataclasses import dataclass
-from typing import List, Optional
+from dataclasses import dataclass, field
+from typing import List, Optional, Any
 
 
 @dataclass
@@ -18,6 +18,7 @@ class SubQuery:
 class Frame:
     timestamp: float
     frame_index: int
+    image: Any = None  # np.ndarray (H, W, 3) RGB — populated by the sampler
 
 
 @dataclass

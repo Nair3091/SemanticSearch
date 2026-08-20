@@ -6,7 +6,7 @@ transformers
 opencv-python
 ffmpeg-python
 numpy
-faiss-cpu   # swap for faiss-gpu if running on a CUDA box
+faiss-gpu   # swap for faiss-gpu if running on a CUDA box
 git+https://github.com/openai/CLIP.git
 
 # Track 3 — Fusion, Confidence & Web Demo
@@ -19,3 +19,4 @@ python-multipart
 # Shared
 pyyaml
 pytest
+`

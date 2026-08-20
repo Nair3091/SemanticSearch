@@ -14,5 +14,16 @@ data/faiss_index/*
 
 *.pt
 *.bin
+*.safetensors
 .ipynb_checkpoints/
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# test artifacts / caches
+.pytest_cache/
+*.log
