@@ -33,3 +33,11 @@ class RetrievalResult:
     accepted: bool
     segment: Optional[CandidateSegment]
     message: str  # e.g. "Reject - No result found" or a success message
+
+
+@dataclass
+class FrameScores:
+    timestamps: Any            # np.ndarray (N,), sorted ascending
+    scores: List[Any]          # one np.ndarray (N,) per sub-query, same order as the input
+    is_dense: Any              # np.ndarray (N,) bool, True if the frame came from Pass 2
+    windows: List[Any]         # [(start, end), ...] windows used in Pass 2

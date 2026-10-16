@@ -1,0 +1,42 @@
+{
+    "original_query": "a cat without black spots",
+    "structured_query": {
+        "original_query": "a cat without black spots",
+        "entities": [
+            {
+                "type": "person",
+                "name": "cat"
+            }
+        ],
+        "events": [
+            {
+                "event_id": 1,
+                "action": "has",
+                "subject": "cat",
+                "object": "black spots",
+                "attributes": [],
+                "relations": [],
+                "negated": false
+            }
+        ],
+        "temporal_relations": [],
+        "negations": []
+    },
+    "negation_verification": [
+        {
+            "event_id": 1,
+            "action": "has",
+            "original_negated": false,
+            "verified_negated": false,
+            "negation_trigger": null,
+            "verification": "VALID"
+        },
+        {
+            "verification": "REVIEW",
+            "detected_triggers": [
+                "without"
+            ],
+            "message": "Negation detected in query but Qwen did not assign it to an event."
+        }
+    ]
+}

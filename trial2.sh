@@ -1,0 +1,3 @@
+ffmpeg -i data/raw_videos/neg1.mp4 -i data/raw_videos/dog.mp4 -i data/raw_videos/neg2.mp4 \
+-filter_complex "[0:v]scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30[a];[1:v]scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30[b];[2:v]scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30[c];[a][b][c]concat=n=3:v=1:a=0[v]" \
+-map "[v]" data/raw_videos/eval_spliced_ar.mp4
