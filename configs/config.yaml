@@ -6,11 +6,12 @@ query_understanding:
   max_sub_queries: 5
 
 vision_retrieval:
-  clip_model_name: "openai/clip-vit-base-patch32"
+  clip_model_name: "openai/clip-vit-large-patch14"
   pass1_interval_seconds: 2.0
   pass2_interval_seconds: 0.25
   top_k_windows: 5
   faiss_index_path: "data/faiss_index/index.faiss"
+  window_radius_seconds: 3.0
 
 fusion_confidence:
   aggregation: "min"

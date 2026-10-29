@@ -1,17 +1,3 @@
-"""
-Track 2 — Vision & Retrieval
-Owner: Dhruv Nair
-
-Builds and queries a FAISS index over precomputed frame embeddings for
-fast similarity lookup. This is what lets retrieval stay fast once
-you're working with a real video corpus (many videos, many frames)
-instead of a single test clip.
-
-Uses IndexFlatIP (inner product) since embed_frames/embed_text already
-L2-normalize — inner product on normalized vectors IS cosine similarity,
-so this matches score_frames() exactly, just backed by FAISS for speed.
-"""
-
 import os
 import numpy as np
 import faiss

@@ -10,7 +10,7 @@ Run: python scripts/run_pipeline.py --video path/to/video.mp4 --query "..."
 """
 
 import argparse
-
+from src.vision_retrieval.retriever import retrieve
 from src.query_understanding.decomposer import decompose_query
 from src.vision_retrieval.sampling.two_pass_sampler import coarse_sample, dense_resample
 from src.vision_retrieval.embedding.clip_encoder import embed_frames, embed_text, score_frames
@@ -24,14 +24,9 @@ def run(video_path: str, query: str) -> None:
     # 1. Query Understanding (Track 1)
     sub_queries = decompose_query(query)
 
-    # 2. Vision & Retrieval (Track 2)
-    frames = coarse_sample(video_path, interval_seconds=2.0)
-    # ... dense_resample + embed_frames + embed_text + score_frames + FAISS search
-
-    # 3. Fusion + Confidence + Recovery (Track 3)
-    # fused = fuse_scores(...)
-    # accepted = check_confidence(fused, threshold=...)
-    # if not accepted: relax_query(...) / widen_window(...) -> retry once
+        # 2. Vision & Retrieval (Track 2)
+    frame_scores = retrieve(video_path, sub_queries)
+    # frame_scores.scores[j] aligns with sub_queries[j]; Track 3 handles negation, fusion, threshold
 
     raise NotImplementedError("Wire up the full pipeline as each track's modules land")
 
